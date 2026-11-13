@@ -1,0 +1,29 @@
+<?php
+
+$tentativas = 0;
+$maiorNumPossivel = readline("Escolha o maior número possível para o sorteio.    ");
+$menorNumPossivel = readline("Escolha o menor número possível para o sorteio.    ");
+$numeroSorteado = mt_rand($menorNumPossivel, $maiorNumPossivel);
+
+do{
+    if($tentativas > 0){
+        print("\n");
+    }
+    $chute = readline("Tenta ai, coloca um número.");
+    $tentativas ++;
+    if($chute == $numeroSorteado){
+        print("Acertou, boa mlk.");
+    }else{
+        print("Errou, tenta de novo ai. \n");
+
+        if($chute > $numeroSorteado){
+            print("Tenta mais baixo dessa vez.");           
+
+        }else{
+            print("Tenta mais alto dessa vez.");
+
+        }
+    }
+}while($chute!= $numeroSorteado);
+
+print("Você tentou $tentativas vezes");
